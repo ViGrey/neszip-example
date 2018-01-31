@@ -26,9 +26,10 @@
 # SUCH DAMAGE.
 
 import os.path
+import struct
 import sys
 
-VERSION = "0.0.1"
+VERSION = "0.0.2"
 
 # Check if help or version flag was passed as an argument
 if len(sys.argv) >= 2:
@@ -51,7 +52,14 @@ def create_polyglot(n, z):
     if len(n) - 8208 >= 16384:
       i = n.rfind(b"\x00" * len(z), 16, 16400)
       if i != -1:
-          return(n[:i] + z + n[i + len(z):])
+          new_nes_contents += n[:i]
+          new_nes_contents += z[:-6]
+          zip_comment_len = len(n) - i - len(z)
+          new_zip_offset = struct.unpack('<I', z[-6: -2])[0] + i
+          new_nes_contents += struct.pack('<I', new_zip_offset)
+          new_nes_contents += struct.pack('<H', zip_comment_len)
+          new_nes_contents += n[i + len(z):]
+          return(new_nes_contents)
       else:
         print("\x1b[91mNot enough space in NES file for ZIP file\x1b[0m")
         exit(1)
