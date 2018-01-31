@@ -18,10 +18,6 @@ The NES ROM can be burned onto a cartridge and it will still work as an NES game
 - zip
 - Python 3
 
-#### Extraction Dependencies:
-
-- unzip
-
 #### Build NES ROM:
 
 From a terminal, go to the the main directory of this project (the directory this README.md file exists in), you can then build the NES ROM with the following command.
