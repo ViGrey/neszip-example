@@ -29,13 +29,14 @@ DIRNAME := $(shell basename $(CURRENTDIR))
 
 all:
 	mkdir -p $(CURRENTDIR)/bin; \
+  mkdir -p $(CURRENTDIR)/pkg; \
   cd $(CURRENTDIR)..; \
-  zip $(CURRENTDIR)bin/$(PKG_NAME).zip -r $(DIRNAME) -x $(DIRNAME)/bin/*; \
+  zip $(CURRENTDIR)pkg/$(PKG_NAME).zip -r $(DIRNAME) -x "$(DIRNAME)/bin/*" -x "$(DIRNAME)/pkg/*" -x "$(DIRNAME)/.git*"; \
   cd $(CURRENTDIR)src; \
   asm $(PKG_NAME).asm ../bin/$(PKG_NAME).nes; \
   cd ..; \
-  ./neszip.py bin/$(PKG_NAME).nes bin/$(PKG_NAME).zip; \
-  rm bin/$(PKG_NAME).zip
+  ./neszip.py bin/$(PKG_NAME).nes pkg/$(PKG_NAME).zip; \
+  rm -rf $(CURRENTDIR)pkg
 
 clean:
-	rm -rf bin
+	rm -rf $(CURRENTDIR)bin $(CURRENTDIR)pkg
