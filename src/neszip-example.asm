@@ -44,9 +44,8 @@
 ;;;;;;;;;;
 
 ;;Initialize Variables (Automatic)
-  enum $10
+  enum $00
 addr dsb 2
-drawAllowed dsb 1
   ende
 
   .base $c000
@@ -115,8 +114,6 @@ InitializeLoop:
   inx
   bne InitializeLoop ;repeat until x rolls back to 0
 InitializeDone:
-  ldx #$01
-  stx drawAllowed
   lda #$00 ;reset A value
   ldx #$00 ;reset X value
   ldy #$00 ;reset Y value

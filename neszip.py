@@ -50,7 +50,7 @@ zip_input = sys.argv[2]
 def reoffset_zip(n, z, i):
   new_z = b''
   z_cursor = 0
-  # get last signature
+  # get last central directory file header signature
   last_file_index = z.rfind(b'\x50\x4b\x01\x02')
   index_check = True
   if last_file_index == -1:
