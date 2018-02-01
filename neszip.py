@@ -79,7 +79,8 @@ def reoffset_zip(n, z, i):
 def create_polyglot(n, z):
     new_nes_contents = b''
     if len(n) - 8208 >= 16384:
-      i = n.rfind(b'\x00' * len(z), 16, 16400)
+      # 16392 gives an 8 byte buffer for end of PRG
+      i = n.rfind(b'\x00' * len(z), 16, 16392)
       if i != -1:
           new_nes_contents += n[:i]
           z_reoffset = reoffset_zip(n, z, i)
