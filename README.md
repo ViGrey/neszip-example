@@ -14,7 +14,7 @@ The NES ROM can be burned onto a cartridge and it will still work as an NES game
 - GNU/Linux
 
 #### Build Dependencies:
-- asm6 _(You'll probably have to build asm6 from source.  The source code can be found at http://3dscapture.com/NES/asm6.zip)_
+- asm6 _(You'll probably have to build asm6 from source.  Make sure the asm6 binary is named **asm** and that the binary is executable and accessible in your PATH. The source code can be found at http://3dscapture.com/NES/asm6.zip)_
 - zip
 - Python 3
 
