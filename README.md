@@ -4,6 +4,8 @@ An NES ROM that is also a ZIP file that contains its own source code to make a n
 
 **_neszip Example is created by Vi Grey (https://vigrey.com) <vi@vigrey.com> and is licensed under the BSD 2-Clause License.  Read LICENSE for license text._**
 
+#### A blog post with details about how this works can be found at https://vigrey.com/blog/this-nes-rom-also-zip-file
+
 #### Description:
 
 This neszip example will create an NES ROM file that is also a ZIP file that contains its own source code.  Using the source code to build a the NES ROM file will also embed the ZIP file within it as well, making another NES ROM file that is also a ZIP file that contains its own source code.  This is a recursive NES ROM and ZIP polyglot file.
