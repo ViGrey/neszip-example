@@ -4,7 +4,9 @@ An NES ROM that is also a ZIP file that contains its own source code to make a n
 
 **_neszip Example is created by Vi Grey (https://vigrey.com) <vi@vigrey.com> and is licensed under the BSD 2-Clause License.  Read LICENSE for license text._**
 
-#### A blog post with details about how this works can be found at https://vigrey.com/blog/this-nes-rom-also-zip-file
+#### A blog post with details about how this project works can be found at https://vigrey.com/blog/this-nes-rom-also-zip-file
+
+This projects was also featured on [Hackaday](https://hackaday.com/2018/02/06/this-nes-rom-is-a-zip-of-its-source)
 
 #### Description:
 

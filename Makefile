@@ -31,7 +31,7 @@ all:
 	mkdir -p $(CURRENTDIR)/bin; \
   mkdir -p $(CURRENTDIR)/pkg; \
   cd $(CURRENTDIR)..; \
-  zip $(CURRENTDIR)pkg/$(PKG_NAME).zip -r $(DIRNAME) -x "$(DIRNAME)/bin/*" -x "$(DIRNAME)/pkg/*" -x "$(DIRNAME)/.git*"; \
+  zip $(CURRENTDIR)pkg/$(PKG_NAME).zip -r $(DIRNAME) -x "$(DIRNAME)/bin/*" -x "$(DIRNAME)/pkg/*" -x "$(DIRNAME)/.git/*"; \
   cd $(CURRENTDIR)src; \
   asm $(PKG_NAME).asm ../bin/$(PKG_NAME).nes; \
   cd ..; \

@@ -30,6 +30,8 @@ import struct
 import sys
 
 VERSION = '0.0.3'
+HOSTOS = b'\x05'
+
 
 # Check if help or version flag was passed as an argument
 if len(sys.argv) >= 2:
@@ -62,7 +64,7 @@ def reoffset_zip(n, z, i):
       new_z += z[z_cursor: next_file_index]
       z_cursor = next_file_index
       new_z += z[z_cursor: z_cursor + 5]
-      new_z += b'\x05'
+      new_z += HOSTOS
       new_z += z[z_cursor + 6: z_cursor + 42]
       old_z_offset = struct.unpack('<I', z[z_cursor + 42: z_cursor + 46])[0]
       new_z += struct.pack('<I', old_z_offset + i)
@@ -78,9 +80,9 @@ def reoffset_zip(n, z, i):
 # them into a single file
 def create_polyglot(n, z):
     new_nes_contents = b''
-    if len(n) - 8208 >= 16384:
-      # 16392 gives an 8 byte buffer for end of PRG
-      i = n.rfind(b'\x00' * len(z), 16, 16392)
+    if len(n) - 8214 >= 16378:
+      # 16394 gives a 6 byte buffer for end of PRG
+      i = n.rfind(b'\x00' * len(z), 16, 16394)
       if i != -1:
           new_nes_contents += n[:i]
           z_reoffset = reoffset_zip(n, z, i)
